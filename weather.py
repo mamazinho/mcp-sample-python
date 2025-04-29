@@ -31,8 +31,7 @@ async def get_forecast(latitude: float, longitude: float) -> str:
     
     url = f"{API_BASE}?latitude={latitude}&longitude={longitude}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_mean,windspeed_10m_max&timezone=America/Sao_Paulo&start_date={tomorrow}&end_date={tomorrow}"
     
-    data = await _get_forecast_on_meteo(url)
-    return data
+    return await _get_forecast_on_meteo(url)
 
 if __name__ == "__main__":
     mcp.run()
