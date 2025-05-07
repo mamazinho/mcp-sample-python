@@ -26,10 +26,8 @@ async def get_forecast(latitude: float, longitude: float) -> str:
     Args:
         latitude: Latitude of the location
         longitude: Longitude of the location
-    """
-    tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-    
-    url = f"{API_BASE}?latitude={latitude}&longitude={longitude}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_mean,windspeed_10m_max&timezone=America/Sao_Paulo&start_date={tomorrow}&end_date={tomorrow}"
+    """    
+    url = f"{API_BASE}?latitude={latitude}&longitude={longitude}"
     
     return await _get_forecast_on_meteo(url)
 
